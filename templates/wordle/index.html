@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wordle</title>
+</head>
+<body>
+
+    <h1>Wordle</h1>
+    <p>Welcome to Wordle!</p>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="guess" placeholder="enter a word">
+        <button type="submit">Gues</button>
+    </form>
+</body>
+</html>
