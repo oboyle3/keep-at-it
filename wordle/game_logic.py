@@ -5,6 +5,7 @@ avail_words = ["apple", "house", "plant", "chair", "table", "water", "green", "b
 def choose_word():
     return random.choice(avail_words)
 
+
 def check_guess(guess, answer):
     if guess == answer:
         print("nice  its the same")
