@@ -12,3 +12,12 @@ def check_guess(guess, answer):
     else:
         print("bad not the same")
 
+def check_user_input_length(guess):
+    length = len(guess)
+    if length != 5:
+        print("check_user_input_length VIOLATION    must be 5 letters")
+        return False
+    else:
+        print("check_user_input_length PASSED")
+        return True
+    
