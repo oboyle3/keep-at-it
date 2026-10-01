@@ -25,4 +25,5 @@ def check_user_input_length(guess):
 def check_whats_missing(guess,ans):
     common = set(guess) & set(ans)
     print(f"fyi i am calling check_whats_missing :::  {sorted(list(common))}")
-    return common
+    result = sorted(list(common))
+    return result
