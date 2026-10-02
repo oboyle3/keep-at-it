@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .game_logic import check_guess, choose_word, check_user_input_length, check_whats_missing
+from .game_logic import check_guess, choose_word, check_user_input_length, check_whats_missing,letters_in_correst_postion_check
 
 def wordle_home(request):
     if "wordle_ans" not in request.session:
@@ -32,6 +32,7 @@ def wordle_home(request):
 
                 print(f"correct letters: {message_of_correct_letter}")
                 print(f"message_of_correct_letter - {message_of_correct_letter}")
+                letters_in = letters_in_correst_postion_check(guess,rand_word)
 
     return render(
     request,
@@ -40,6 +41,7 @@ def wordle_home(request):
         "message_to_user": message_to_user,
         "message_of_correct_letter":message_of_correct_letter,
         "message_of_user_win": message_of_user_win,
+        "letters_in": letters_in,
         
         }
 )

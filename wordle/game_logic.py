@@ -27,3 +27,13 @@ def check_whats_missing(guess,ans):
     print(f"fyi i am calling check_whats_missing :::  {sorted(list(common))}")
     result = sorted(list(common))
     return result
+
+"Which letters did the user get in the correct position?"
+def letters_in_correst_postion_check(guess,ans):
+    correct_spots = []
+    for i in range (5):
+        if guess[i] == ans[i]:
+            correct_spots.append(guess[i])
+    print(f"cirrect spots = {correct_spots}")
+    return correct_spots
+            
