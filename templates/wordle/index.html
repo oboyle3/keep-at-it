@@ -21,11 +21,19 @@
         <input type="text" name="guess" placeholder="enter a word">
         <button type="submit">Gues</button>
     </form>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" name="action" value="reveal">
+         Reveal Answer
+        </button>
+    </form>
     {{ message_to_user }}
 
     <p> {{ message_of_correct_letter }}</p>
     <p>{{  message_of_user_win  }}</p>
     <p1>{{ letters_in }}</p1>
     <p2>tries: {{ tries }}</p2>
+    <p3>{{ message_of_reveal }}</p3>
+    
 </body>
 </html>
