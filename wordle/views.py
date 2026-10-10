@@ -6,16 +6,21 @@ def wordle_home(request):
         print("sxxxxxxxxxxxxxxxxxxxxxxxx")
         request.session["wordle_ans"] = choose_word()
     rand_word = request.session["wordle_ans"]
+    if "tries" not in request.session:
+        request.session["tries"] = 0
     print(f"WORDLE VIEW WAS CALLED  random wordle ans = {rand_word}")
     message_to_user = ""  #avoid being returned every time
     message_of_correct_letter = ""#avoid being returned every time
     message_of_user_win = ""
     letters_in= ""
+    
     # count_user_tries = 0
     if request.method == "POST":
         guess = request.POST.get("guess")
         print(f"guess = {guess}")
         check_len = check_user_input_length(guess)
+        if check_len:
+            request.session["tries"] += 1
         #send message to user if not 5 letters
         
         if not check_len:
@@ -25,6 +30,7 @@ def wordle_home(request):
             if guess == rand_word:
                 print("you win, Congrats!")
                 message_of_user_win = "you win, Congrats!"
+                
             else:
                 print("you didn't get it right")
                 #check if there are any simlar letters
@@ -34,6 +40,8 @@ def wordle_home(request):
                 print(f"correct letters: {message_of_correct_letter}")
                 print(f"message_of_correct_letter - {message_of_correct_letter}")
                 letters_in = letters_in_correst_postion_check(guess,rand_word)
+                
+               
 
     return render(
     request,
@@ -43,6 +51,7 @@ def wordle_home(request):
         "message_of_correct_letter":message_of_correct_letter,
         "message_of_user_win": message_of_user_win,
         "letters_in": letters_in,
+        "tries": request.session["tries"],
         
         }
 )
