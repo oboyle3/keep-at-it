@@ -10,6 +10,7 @@ def wordle_home(request):
     message_to_user = ""  #avoid being returned every time
     message_of_correct_letter = ""#avoid being returned every time
     message_of_user_win = ""
+    letters_in= ""
     # count_user_tries = 0
     if request.method == "POST":
         guess = request.POST.get("guess")
