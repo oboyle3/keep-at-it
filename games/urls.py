@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", views.home, name="home"),
     path("wordle/", include("wordle.urls")),
+    path("bond-cashflows/", include("bond_cashflows.urls")),
 ]

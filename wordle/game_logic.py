@@ -43,3 +43,8 @@ def letters_in_correst_postion_check(guess,ans):
 #arr = ["1","2","3","4","5"]
 # guess = "music"
 # ans =   "fusic"
+
+def bond_calc(bond_face_val,coupon,duration):
+    #\[Total Cashflows} = ({Coupon} x {Duration}) + {Face Value}
+    projected_cashflow = ((coupon * duration) + bond_face_val)
+    return projected_cashflow

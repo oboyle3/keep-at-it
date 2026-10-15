@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bond Cashflows</title>
+</head>
+<body>
+    <h1>Bond Cashflows</h1>
+    <p>Welcome to the bond cashflows calculator!</p>
+    <h1>Bond Cashflow Calculator</h1>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <label>Bond Face Value ($)</label>
+    <input type="number" name="bond_face_val" step="0.01" required>
+
+    <label>Annual Coupon Payment ($)</label>
+    <input type="number" name="coupon" step="0.01" required>
+
+    <label>Duration (years)</label>
+    <input type="number" name="duration" min="1" step="1" required>
+
+    <button type="submit">Calculate</button>
+</form>
+
+</body>
+
+</html>
+
+   
